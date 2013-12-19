@@ -2,6 +2,7 @@ package org.zero.apps.spring;
 
 import static org.junit.Assert.*;
 
+import org.apache.ibatis.session.defaults.DefaultSqlSessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,21 @@ public class HiveComponentTest {
 	
 	@Autowired
 	ApplicationContext context;
+	
+	@Autowired
+	DefaultSqlSessionFactory sessionFactory;
+	
 	@Test
 	public void test() {
-		
+	
+		for(String mapId : sessionFactory.getConfiguration().getMappedStatementNames()) {
+			System.out.println("MAP ID : " + mapId);
+		}
+		/*
 		for(String name : context.getBeanDefinitionNames()) { 
 			System.out.println("Bean Name : " +name);
 		}
+		*/
 		System.out.println("HEllo");
 		System.out.println(component.getAll());
 	}

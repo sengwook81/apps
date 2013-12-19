@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class HiveComponent {
 
-	@Autowired
+	@Autowired(required=false)
 	HiveMapper mapper;
 	
 	public List<Map<String, Object>> getAll() {
