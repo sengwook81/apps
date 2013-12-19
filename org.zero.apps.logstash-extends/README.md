@@ -1,6 +1,6 @@
 Using LogStash 1.2.2 
 http://logstash.net/
-
+“`
 #Filter
 #Elastic Search -> Redis를 통해 전달받은 이벤트를 기반으로 DataField 추출
 logstash/filters/dfield.rb 
@@ -26,7 +26,7 @@ input {
     type => index_data
   }
   
-  #ElsticSearch와의 통신을 위한 Input 설정.
+  ElsticSearch와의 통신을 위한 Input 설정.
   redis {
     host => "appserver"
     data_type => "channel" # Buffer 데이터로부터 Subscribe , ElasticSearh에서 Publish
@@ -52,3 +52,4 @@ output {
    	port => "8080"
    }
 }
+'"
