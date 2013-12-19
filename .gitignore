@@ -1,4 +1,10 @@
 *.class
+.classpath
+.settings
+.project
+.springBeans
+bin
+target
 
 # Package Files #
 *.jar
