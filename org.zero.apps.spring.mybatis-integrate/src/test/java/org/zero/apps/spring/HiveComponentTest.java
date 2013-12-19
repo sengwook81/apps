@@ -29,13 +29,9 @@ public class HiveComponentTest {
 		for(String mapId : sessionFactory.getConfiguration().getMappedStatementNames()) {
 			System.out.println("MAP ID : " + mapId);
 		}
-		/*
-		for(String name : context.getBeanDefinitionNames()) { 
-			System.out.println("Bean Name : " +name);
-		}
-		*/
-		System.out.println("HEllo");
-		System.out.println(component.getAll());
+
+		System.out.println("List Return : " + component.getListAll());
+		System.out.println("Map Return : " + component.getMapAll());
 	}
 
 }

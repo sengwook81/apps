@@ -3,7 +3,15 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.zero.apps.spring.HiveMapper">
-    <select id="getAll" resultType="map">
-        SELECT * FROM HIVE.CDS
-    </select>
+
+	<sql id="sqlSelect">
+		SELECT * FROM HIVE.COLUMNS_V2;
+	</sql>
+	<select id="getMapAll" resultType="map">
+		<include refid="sqlSelect" />
+	</select>
+
+	<select id="getListAll" resultType="map">
+		<include refid="sqlSelect" />
+	</select>
 </mapper>

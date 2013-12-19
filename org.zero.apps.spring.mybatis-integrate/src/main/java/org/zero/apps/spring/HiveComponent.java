@@ -12,7 +12,11 @@ public class HiveComponent {
 	@Autowired(required=false)
 	HiveMapper mapper;
 	
-	public List<Map<String, Object>> getAll() {
-		return mapper.getAll();
+	public Map<String,Map<String, Object>> getMapAll() {
+		return mapper.getMapAll();
+	}
+	
+	public List<Map<String, Object>> getListAll() {
+		return mapper.getListAll();
 	}
 }
