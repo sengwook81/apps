@@ -9,6 +9,7 @@
 	</bean>
 	
 	<sec:http pattern="/resource/**" security="none"></sec:http>
+	<sec:http pattern="/lib/**" security="none"></sec:http>
 	<sec:http pattern="/app/**" security="none"></sec:http>
 	<sec:http pattern="/*.jsp" security="none"></sec:http>
 	<sec:http auto-config="true" create-session="never"  >
