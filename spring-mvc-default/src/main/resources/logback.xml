@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding= "UTF-8"?>
+<configuration>
+	<appender name="File"
+		class="ch.qos.logback.core.rolling.RollingconsoleAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- Daily rollover -->
+			<consoleNamePattern>/Users/zero/mvc/default.%d{yyyy-MM-dd}.log</consoleNamePattern>
+			<maxHistory>3</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss,SSS} %5p [%-40.40c] %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss,SSS} %5p [%-40.40c] %m%n</pattern>
+		</encoder>
+
+	</appender>
+	<logger name="java.sql" level="TRACE">
+		<appender-ref ref="console" />
+	</logger>
+	
+	<logger name="org.apache" level="INFO">
+		<appender-ref ref="console" />
+	</logger>
+	
+	<logger name="org.zero" level="TRACE">
+		<appender-ref ref="console" />
+	</logger>
+
+	<logger name="org.springframework" level="TRACE">
+		<appender-ref ref="console" />
+	</logger>
+
+	<root>
+		<level value="TRACE" />
+	</root>
+
+</configuration>

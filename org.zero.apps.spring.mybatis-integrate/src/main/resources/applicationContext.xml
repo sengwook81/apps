@@ -2,7 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 
@@ -11,20 +13,21 @@
  <bean id="dataSource" 
       class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-      <property name="url" value="jdbc:mysql://localhost:3306/HIVE"/>
-      <property name="username" value="HIVE"/>
-      <property name="password" value="HIVE"/>
+      <property name="url" value="jdbc:mysql://name1:3306/DOOBYHIVE"/>
+      <property name="username" value="DOOBYHIVE"/>
+      <property name="password" value="DOOBYHIVE"/>
    </bean>
    
    
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource" />
     <property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
-    <property name="mapperLocations" value="classpath:org/zero/apps/spring/**/*.xml" />
+    <property name="mapperLocations" value="classpath*:org/zero/apps/spring/**/*.xml,classpath*:org/zero/apps/common/**/*.xml" />
+    
 </bean>
 
 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
- <property name="basePackage" value="org.zero.apps.spring"></property>
+ <property name="basePackage" value="org.zero.apps.spring,org.zero.apps.common"></property>
 </bean>
  
 </beans>

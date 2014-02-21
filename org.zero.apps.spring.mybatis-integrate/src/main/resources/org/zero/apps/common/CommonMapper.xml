@@ -2,16 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.zero.apps.spring.HiveMapper">
+<mapper namespace="org.zero.apps.common.CommonMapper">
 
 	<sql id="sqlSelect">
-		SELECT * FROM TBLS;
+		SELECT * ,#{item} FROM TBLS;
 	</sql>
-	<select id="getMapAll" resultType="map">
-		<include refid="sqlSelect" />
-	</select>
 
-	<select id="getListAll" resultType="map">
+	<select id="getListCommonsAll" parameterType="org.zero.apps.common.HiveVo" resultType="map">
 		<include refid="sqlSelect" />
 	</select>
 </mapper>

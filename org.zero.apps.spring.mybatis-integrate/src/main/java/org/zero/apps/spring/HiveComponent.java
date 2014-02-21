@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.zero.apps.common.HiveVo;
 
 @Component
 public class HiveComponent {
@@ -12,7 +13,7 @@ public class HiveComponent {
 	@Autowired(required=false)
 	HiveMapper mapper;
 	
-	public Map<String,Map<String, Object>> getMapAll() {
+	public Map<String,Map<String, Object>> getMapAll(HiveVo item) {
 		return mapper.getMapAll();
 	}
 	
